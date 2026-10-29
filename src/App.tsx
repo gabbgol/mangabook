@@ -7,12 +7,19 @@ function App() {
     {titulo: "Tower", autor: "Coreia", descricao: "torre sobe briga", capa: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2YSx5tnH9Qa-quVLEWDfMlDp4yFmywBS1GqzsVvcCw&s=10"},
     {titulo: "High", autor: "Coreia", descricao: "High school briga de estudante", capa: "https://m.media-amazon.com/images/I/91EKosxJIdL._AC_UF1000,1000_QL80_.jpg"}
   ])
+  const [tituloManga, setTituloManga] = useState("")
+
+  function abrirModal(){
+    document.getElementById("meuModal")!.style.display = "flex";
+  }
+  function fecharModal(){
+    document.getElementById("meuModal")!.style.display = "none";
+  }
   return(
+    
     <section>
           <h1>Minha Biblioteca</h1>
-          <button id="addButton" onClick={() => setBookManga(
-            [...bookManga,{titulo: "Titulo", autor: "Autor", descricao: "descricao", capa:"https://cdn.dooca.store/121439/products/pyzzpnxxtp8oq0bfrdqtdj8wtnmd9ddyrxfq_640x640+fill_ffffff.png?v=1695341442&webp=0"}])}>+ Adicionar Manhwa</button>
-
+          <button id="addButton" onClick={() => abrirModal()}>+ Adicionar Manhwa</button>
           <div className='livros'>
               {bookManga.map((manga) => (
                 <section key={manga.titulo}>
@@ -23,7 +30,30 @@ function App() {
                 </section>
               ))}
           </div>
-
+          <div id="meuModal" className='modal-overlay'>
+            <div className='modal-content'>
+              <button className='btn-fechar' onClick={() => fecharModal()}>&times;</button>
+              <form id='formulario_adiciona_livro' action="">
+                <div>
+                  <label htmlFor="titulo">Titulo</label>
+                  <input type="text" id='titulo_form' name='titulo_form' />
+                </div>
+                <div>
+                  <label htmlFor="autor">Autor</label>
+                  <input type="text" id='autor_form' name="autor_form"/>
+                </div>
+                <div>
+                  <label htmlFor="descricao">Descrição</label>
+                  <input type="text" name="descricao_form" id="descricao_form" />
+                </div>
+                <div>
+                  <label htmlFor="capa">Capa</label>
+                  <input type="image" src="" alt="" />
+                </div>
+                <button id='submit_forms'>Salvar</button>
+              </form>
+            </div>
+          </div>
 
 
                   
