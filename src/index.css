@@ -9,12 +9,23 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   min-height: 50vh;
 }
 button{
   cursor: pointer;
   font-family: 'Poppins';
   font-weight: 200;
+}
+h1{
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+#addButton{
+  margin-bottom: 5vh;
+  position: relative;
+  font-size: 20px;
+  border-radius: 20px;
   margin-top: 2vh;
   width: 260px;
   height: 90px;
@@ -22,12 +33,6 @@ button{
   background: #fff;
   box-shadow: 1px 4px 10px 0px rgba(0, 0, 0, 0.20);
   transition: transform 0.2s ease;
-}
-
-#addButton{
-  position: relative;
-  font-size: 20px;
-  border-radius: 20px;
 }
 #addButton:active{
   transform: scale(0.96);
