@@ -23,10 +23,13 @@ function App() {
           <div className='livros'>
               {bookManga.map((manga) => (
                 <section key={manga.titulo}>
-                  <img src={manga.capa} width={350} height={450} alt={`Imagem da capa do manga ${manga.titulo}`} />
-                  <h1>{manga.titulo}</h1>
-                  <h3>{manga.autor}</h3>
-                  <p>{manga.descricao}</p>
+                  <img src={manga.capa} width={300} height={450} alt={`Imagem da capa do manga ${manga.titulo}`} />
+                  <div className='infosMangas'>
+                    <h1>{manga.titulo}</h1>
+                    <h3>{manga.autor}</h3>
+                    <p>{manga.descricao}</p>
+                  </div>
+                  
                 </section>
               ))}
           </div>
@@ -34,8 +37,11 @@ function App() {
             <div className='modal-content'>
               <button className='btn-fechar' onClick={() => fecharModal()}>&times;</button>
               <form id='formulario_adiciona_livro' action="">
+                <div className='imagem_capa_form'>
+
+                </div>
                 <div>
-                  <label htmlFor="titulo">Titulo</label>
+                  <label htmlFor="titulo" requie aria-placeholder="titulo">Titulo</label>
                   <input type="text" id='titulo_form' name='titulo_form' />
                 </div>
                 <div>
@@ -48,7 +54,7 @@ function App() {
                 </div>
                 <div>
                   <label htmlFor="capa">Capa</label>
-                  <input type="image" src="" alt="" />
+                  <input type="url" src="" alt="" />
                 </div>
                 <button id='submit_forms'>Salvar</button>
               </form>
