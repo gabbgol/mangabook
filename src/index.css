@@ -138,6 +138,7 @@ input{
 .livros{
   display: flex;
   gap: 45px;
+  flex-wrap: wrap;
 }
 
 #submit_forms{

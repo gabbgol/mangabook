@@ -8,7 +8,7 @@ function App() {
     {titulo: "High", autor: "Coreia", descricao: "High school briga de estudante", capa: "https://m.media-amazon.com/images/I/91EKosxJIdL._AC_UF1000,1000_QL80_.jpg"}
   ])
   const [tituloManga, setTituloManga] = useState("")
-
+  const getRandomUUID = self.crypto.randomUUID();
   function abrirModal(){
     document.getElementById("meuModal")!.style.display = "flex";
   }
@@ -19,10 +19,12 @@ function App() {
     
     <section>
           <h1>Minha Biblioteca</h1>
+          <input value={tituloManga} onChange={(e) => setTituloManga(e.target.value)} />
+          <p>Você digitou: {tituloManga}</p>
           <button id="addButton" onClick={() => abrirModal()}>+ Adicionar Manhwa</button>
           <div className='livros'>
               {bookManga.map((manga) => (
-                <section key={manga.titulo}>
+                <section key={getRandomUUID}>
                   <img src={manga.capa} width={300} height={450} alt={`Imagem da capa do manga ${manga.titulo}`} />
                   <div className='infosMangas'>
                     <h1>{manga.titulo}</h1>
@@ -38,10 +40,10 @@ function App() {
               <button className='btn-fechar' onClick={() => fecharModal()}>&times;</button>
               <form id='formulario_adiciona_livro' action="">
                 <div className='imagem_capa_form'>
-
+                  <img src="" alt="" />
                 </div>
                 <div>
-                  <label htmlFor="titulo" requie aria-placeholder="titulo">Titulo</label>
+                  <label htmlFor="titulo_form">Titulo</label>
                   <input type="text" id='titulo_form' name='titulo_form' />
                 </div>
                 <div>
